@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 
 WORKDIR /tmp
 
-RUN apt-get update && apt-get install -y \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
   bash \
   build-essential libmpfr-dev libmpc-dev \
   python python3 \
@@ -13,4 +13,4 @@ RUN apt-get update && apt-get install -y \
   default-jdk \
   pkg-config make automake \
   file rsync nano \
-  && apt-get clean
+  && DEBIAN_FRONTEND=noninteractive apt-get clean
